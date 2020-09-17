@@ -18,7 +18,7 @@ It's simple test, you can run it on your local computer.
 - Node js
 - Express js
 # Contributing
-You can make any changes in my codes, i hope you will help me to improve my code :D
+We hope you will help us to improve our code :D
 # Versioning
 Version 1.0
 # Authors
