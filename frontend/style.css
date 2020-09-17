@@ -1,4 +1,8 @@
 body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-page{
     background: url('./images/bg-body-login.png') no-repeat center center fixed;
     height: 100%;
 }
@@ -6,29 +10,31 @@ body{
 .container-box{
     background-color: white;
     border-radius: 15px;
-    margin: 10%;
+    margin: 10% 10%;
     padding: 20px;
 }
 
-button[type=submit]:hover {
-    background-color: #45a049;
+
+button:hover {
+    background-color: #1ACC8D;
 }
 
 h6{
     text-align: center;
 }
 
+.bg-color{
+    background-color: #1ACC8D;
+}
 
 .form-control{
-    /* width: 50%; */
-    border-radius: 20px;
-    border: none;
-    padding-left: 10%;
+    height: 60px;
+    background-color: rgb(233, 230, 230);
 }
 
-input[type=text], input[type=password]{
+/* input[type=text], input[type=password]{
     background-color: rgb(212, 209, 209);
-}
+} */
 
 input:visited{
     border:none;
@@ -49,4 +55,40 @@ i:hover{
     background-color: rgb(255, 255, 255);
     height: 60px;
     width: 60px;
+}
+
+.rounded-circle{
+    height: 200px;
+    width: 200px;
+}
+
+.btn{
+    min-width: 140px;
+    border:2px solid white; 
+    transition: all ease 1s;
+    background-size: 300%;
+    background-position: 0 0;
+    background-color: #ffc107;
+}
+
+.btn:hover{
+    /* background-image: linear-gradient(to left, #1C4CA3, #235FCD, #1ACC8D,#1ACC8D, #1ACC8D); */
+    background-color: #1ACC8D;
+}
+
+li a{
+    color: #000000;
+    transition: color 0.5s;
+}
+
+li a:hover{
+    color: #ffc107;
+}
+
+footer{
+    background-color: #45a049;
+}
+
+.footer-container{
+    padding: 15px;
 }
