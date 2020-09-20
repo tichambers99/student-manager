@@ -7,6 +7,11 @@ body{
     height: 100%;
 }
 
+.container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .container-box{
     background-color: white;
     border-radius: 15px;
@@ -56,12 +61,15 @@ i:hover{
     height: 60px;
     width: 60px;
 }
-
-.rounded-circle{
+.rounded-avatar-big{
     height: 200px;
     width: 200px;
 }
 
+.rounded-avatar-small{
+    height: 45px;
+    width: 45px;
+}
 .btn{
     min-width: 140px;
     border:2px solid white; 
@@ -92,3 +100,19 @@ footer{
 .footer-container{
     padding: 15px;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

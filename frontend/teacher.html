@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e160fe7774.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>User profile</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand bg-color">
+            <a class="navbar-brand" href="./login.html">
+                <img src="./images/logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><h5>Class</h5></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><h5>Teacher</h5></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><h5>Profile</h5></a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav my-2 my-md-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user fa-2x"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                            aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Log out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h5>Teacher in school</h5>
+        <form class="d-flex justify-content-end align-items-center">
+            <div class="form-group">
+                <input type="text" class="form-control h-75" placeholder="Search by name">
+              </div>
+            <button type="submit" class="btn btn-search form-group h-75">Search</button>
+        </form>
+        <table>
+            <tr>
+                <th>Avatar</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Class</th>
+                <th>Profile</th>
+            </tr>
+            <tr>
+                <td> <img src="./images/wowy.jpg" class="mx-auto img-fluid rounded-circle rounded-avatar-small d-block avatar" alt="avatar"></td>
+                <td>Ngu37n V1n Kha8nh</td>
+                <td>07/12/1999</td>
+                <td>1A</td>
+                <td><a href="./view-teacher.html">View profile</a></td>
+            </tr>
+            <tr>
+                <td> <img src="./images/wowy.jpg" class="mx-auto img-fluid rounded-circle rounded-avatar-small d-block avatar" alt="avatar"></td>
+                <td>L3 )[8c L]9</td>
+                <td>19/03/1999</td>
+                <td>1B</td>
+                <td><a href="#">View profile</a></td>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        <div class="container footer-container text-white">
+            <h5>School Management System</h5>
+            <div>Design by tichambers99/sabo193</div>
+        </div>
+    </footer>
+</body>
+</html>
