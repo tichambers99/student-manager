@@ -5,6 +5,7 @@ const studentSchema = new mongoose.Schema({
   email: String,
   dateOfBirth: Date,
   adrress: String,
+  class: String,
   mark: {
     math: {type: Number},
     literature: {type: Number},

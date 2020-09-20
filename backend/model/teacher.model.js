@@ -6,7 +6,8 @@ const teacherSchema = new mongoose.Schema({
   dateOfBirth: Date,
   address: String,
   phoneNumber: String,
-  facebookLink: String
+  facebookLink: String,
+  class: String
 });
 
 const Teacher = mongoose.model('Teacher', teacherSchema, 'teacher');
