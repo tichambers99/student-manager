@@ -37,9 +37,9 @@ h6{
     background-color: rgb(233, 230, 230);
 }
 
-/* input[type=text], input[type=password]{
-    background-color: rgb(212, 209, 209);
-} */
+.form-group{
+    margin-bottom: 0;
+}
 
 input:visited{
     border:none;
@@ -101,18 +101,34 @@ footer{
     padding: 15px;
 }
 
+.w-15{
+    width: 15%;
+}
+
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
   }
-  
-  td, th {
-    border: 1px solid #dddddd;
+
+td {
     text-align: left;
+}
+
+th {
+    text-align: center;
+}
+
+td, th {
+    border: 1px solid #dddddd;
     padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+}
+
+tr:nth-child(even) {
+    background-color: #eeeeee;
+}
+
+tr:nth-child(even) .form-control{
+    background-color: #ffffff;
+}
