@@ -1,0 +1,119 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-page{
+    background: url('./images/bg-body-login.png') no-repeat center center fixed;
+    height: 100%;
+}
+
+.container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container-box{
+    background-color: white;
+    border-radius: 15px;
+    margin: 10% 10%;
+    padding: 20px;
+}
+
+
+button:hover {
+    background-color: #1ACC8D;
+}
+
+h6{
+    text-align: center;
+}
+
+.bg-color{
+    background-color: #1ACC8D;
+}
+
+.form-control{
+    height: 60px;
+    background-color: rgb(233, 230, 230);
+}
+
+/* input[type=text], input[type=password]{
+    background-color: rgb(212, 209, 209);
+} */
+
+input:visited{
+    border:none;
+}
+
+i{
+    color: #ffc107;
+    transition: color 0.5s;
+}
+
+i:hover{
+    color: #45a049;
+}
+
+.icon-rounded-circle{
+    border-radius: 100%;
+    border: 2px solid #ffc107;
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    width: 60px;
+}
+.rounded-avatar-big{
+    height: 200px;
+    width: 200px;
+}
+
+.rounded-avatar-small{
+    height: 45px;
+    width: 45px;
+}
+.btn{
+    min-width: 140px;
+    border:2px solid white; 
+    transition: all ease 1s;
+    background-size: 300%;
+    background-position: 0 0;
+    background-color: #ffc107;
+}
+
+.btn:hover{
+    /* background-image: linear-gradient(to left, #1C4CA3, #235FCD, #1ACC8D,#1ACC8D, #1ACC8D); */
+    background-color: #1ACC8D;
+}
+
+li a{
+    color: #000000;
+    transition: color 0.5s;
+}
+
+li a:hover{
+    color: #ffc107;
+}
+
+footer{
+    background-color: #45a049;
+    margin: 0px;
+}
+
+.footer-container{
+    padding: 15px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
+  }

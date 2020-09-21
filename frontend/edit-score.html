@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>User profile</title>
+    <title>Edit score</title>
 </head>
 <body>
     <header>
@@ -35,6 +35,7 @@
                         <a class="nav-link" href="#"><h5>Profile</h5></a>
                     </li>
                 </ul>
+
                 <ul class="navbar-nav my-2 my-md-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
@@ -53,43 +54,48 @@
     </header>
 
     <div class="container">
-            <div class="row my-2">
-                <div class="col-lg-8 order-lg-2">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content py-4">
-                        <div class="tab-pane active" id="profile">
-                            <h5 class="mb-3">Teacher Profile</h5>
-                            <div>
-                                Name: Nguy37n V2n Kha8nh
-                            </div>
-                            <div>
-                                Date: 07/12/19999
-                            </div>
-                            <div>
-                                Address: Yen Noi, Quoc Oai, Ha Noi
-                            </div>
-                            <hr class="w-50">
-                            <div>
-                                SDT li3n h39: 0900900090
-                            </div>
-                            <div>
-                                Fb: <a href="https://facebook.com/tichambers99" target="_blank"> Khanh Nguyen</a>
-                            </div>
-                            <div>
-                                Email: khanhkhanhars@gmail.com
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 order-lg-1 text-center">
-                    <img src="./images/wowy.jpg" class="mx-auto img-fluid rounded-circle rounded-avatar-big d-block avatar" alt="avatar">
-                </div>
-            </div>
-        </div>
+        <h5>Edit score</h5>
+        <form class="d-flex justify-content-end align-items-center">
+            <div class="form-group">
+                <input type="text" class="form-control h-75" placeholder="Search by name">
+              </div>
+            <button type="submit" class="btn btn-search form-group h-75">Search</button>
+        </form>
+        <table>
+            <tr>
+                <th>Avatar</th>
+                <th>Name</th>
+                <th>Math</th>
+                <th>Literature</th>
+                <th>English</th>
+            </tr>
+            <tr>
+                <td> <img src="./images/wowy.jpg" class="mx-auto img-fluid rounded-circle rounded-avatar-small d-block avatar" alt="avatar"></td>
+                <td>Ngu37n V1n Kha8nh</td>  
+                <td>
+                    <tr>
+                        <td>8</td>
+                        <td>8</td>
+                    </tr>
+                </td>
+                <td>
+                    <td>8</td>
+                    <td>8</td>
+                </td>
+                <td>
+                    <td>8</td>
+                    <td>8</td>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td> <img src="./images/wowy.jpg" class="mx-auto img-fluid rounded-circle rounded-avatar-small d-block avatar" alt="avatar"></td>
+                <td>L3 )[8c L]9</td>
+                <td>19/03/1999</td>
+                <td>1B</td>
+                <td><a href="#">View profile</a></td>
+            </tr> -->
+        </table>
+    </div>
     <footer>
         <div class="container footer-container text-white">
             <h5>School Management System</h5>
