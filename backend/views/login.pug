@@ -38,10 +38,10 @@ body.login-page
         img(src='/images/logo.png', alt='')
         h4.my-2 School management system
         h5 Log in
-        form
+        form(action="/auth", method="POST")
           .form-group
             // <label for="exampleInputEmail1">Email address</label>
-            input#exampleInputEmail1.form-control(type='text', aria-describedby='emailHelp', placeholder='Account', name='id')
+            input#exampleInputEmail1.form-control(type='text', aria-describedby='emailHelp', placeholder='Account', name='email')
           .form-group
             // <label for="exampleInputPassword1">Password</label>
             input#exampleInputPassword1.form-control(type='password', placeholder='Password', name='password')

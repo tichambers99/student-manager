@@ -43,51 +43,43 @@ header
         li.nav-item
           a.nav-link.active(href='', data-target='#profile', data-toggle='tab') Profile
         li.nav-item
-          a.nav-link(href='', data-target='#edit', data-toggle='tab') Edit
+          a.nav-link(href='', data-target='#score', data-toggle='tab') Score
       .tab-content.py-4
         #profile.tab-pane.active
           h5.mb-3 User Profile
-          div
-            | Name: Nguy37n V2n Kha8nh
-          div
-            | Date: 07/12/19999
-          div
-            | Address: Yen Noi, Quoc Oai, Ha Noi
+          div Name:
+            span= student.name
+          div Date:
+            span= student.dateOfBirth
+          div Address:
+           span= student.address
           hr.w-50
+          div Class:
+            span= student.class
+          div Fb: 
+            a(href='https://facebook.com/tichambers99', target='_blank')
+              span= student.name
+          div Email:
+            span= student.email
+        #score.tab-pane
+          h5.mb-3 Student score
+          table
+            tr
+              th Name
+              th Mid-term
+              th End-term
+            tr
+              td Math
+              td 8
+              td 9
+            tr
+              td Literature
+              td 8
+              td 9
+          h5.mt-3
+            | Teacher&apos;s comment
           div
-            | Class: 1A
-          div
-            | SDT li3n h39: 0900900090
-          div
-            | Fb: 
-            a(href='https://facebook.com/tichambers99', target='_blank')  Khanh Nguyen
-          div
-            | Email: khanhkhanhars@gmail.com
-        #edit.tab-pane
-          h5.mb-3 Change Profile
-          form.contact-form.mt-md-4
-            .row
-              .col-lg-6
-                .form-group
-                  input#name.form-control.border-0.text-placeholder(name='name', type='text', placeholder='Your Name')
-              .col-lg-6
-                .form-group
-                  input#email.form-control.border-0.text-placeholder(name='email', type='email', placeholder='Your Email')
-            .row
-              .col-lg-12
-                .form-group
-                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Subject')
-            .row
-              .col-lg-12
-                .form-group
-                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Subject')
-            .row
-              .col-lg-12
-                .form-group
-                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Subject')
-            .row
-              .col-lg-12.text-left
-                button.btn.mt-4.text-white(type='submit', value='Send') Save
+            | This student have something to try in this term. The score is very high but real capacity is not real
     .col-lg-4.order-lg-1.text-center
       img.mx-auto.img-fluid.rounded-circle.d-block.avatar(src='./images/wowy.jpg', alt='avatar')
       button.btn.w-50

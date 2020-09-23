@@ -20,7 +20,7 @@ header
     #navbarsExample02.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item.active
-          a.nav-link(href='#')
+          a.nav-link(href='teacher/class')
             h5 Class
         li.nav-item
           a.nav-link(href='#')
@@ -44,20 +44,20 @@ header
       .tab-content.py-4
         #profile.tab-pane.active
           h5.mb-3 Teacher Profile
-          div
-            | Name: Nguy37n V2n Kha8nh
-          div
-            | Date: 07/12/19999
-          div
-            | Address: Yen Noi, Quoc Oai, Ha Noi
+          div Name: 
+            span=  teacher.name
+          div Date:
+            span=  teacher.dateOfBirth
+          div Address: 
+            span=  teacher.address
           hr.w-50
-          div
-            | SDT li3n h39: 0900900090
-          div
-            | Fb: 
-            a(href='https://facebook.com/tichambers99', target='_blank')  Khanh Nguyen
-          div
-            | Email: khanhkhanhars@gmail.com
+          div Phone number:
+            span=  teacher.phone
+          div Facebook
+            a(href=`${teacher.facebookLink}`, target='_blank')   
+              span= teacher.name
+          div Email:
+            span= teacher.email
     .col-lg-4.order-lg-1.text-center
       img.mx-auto.img-fluid.rounded-circle.rounded-avatar-big.d-block.avatar(src='./images/wowy.jpg', alt='avatar')
 footer

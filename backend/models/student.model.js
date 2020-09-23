@@ -3,13 +3,17 @@ const mongoose = require('mongoose');
 const studentSchema = new mongoose.Schema({
   name: String,
   email: String,
-  dateOfBirth: Date,
-  adrress: String,
-  class: String,
+  dateOfBirth: String,
+  address: String,
+  classes: String,
   mark: {
     math: {type: Number},
     literature: {type: Number},
     english: {type: Number}
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }
 });
 

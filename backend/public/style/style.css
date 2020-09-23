@@ -3,7 +3,7 @@ body{
 }
 
 .login-page{
-    background: url('./images/bg-body-login.png') no-repeat center center fixed;
+    background: url('/images/bg-body-login.png') no-repeat center center fixed;
     height: 100%;
 }
 
