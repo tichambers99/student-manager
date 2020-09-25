@@ -13,28 +13,36 @@ head
   title User profile
 header
   nav.navbar.navbar-expand.bg-color
-    a.navbar-brand(href='./login.html')
-      img(src='./images/logo.png', alt='')
+    if isTeacher
+      a.navbar-brand(href='/teacher')
+        img(src='/images/logo.png', alt='')
+    else
+      a.navbar-brand(href='/student')
+        img(src='/images/logo.png', alt='')
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample02', aria-controls='navbarsExample02', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarsExample02.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item.active
-          a.nav-link(href='teacher/class')
+          a.nav-link(href='/teacher/class')
             h5 Class
         li.nav-item
-          a.nav-link(href='#')
+          a.nav-link(href='/teacher/list')
             h5 Teacher
         li.nav-item
-          a.nav-link(href='#')
-            h5 Profile
+          if isTeacher
+            a.nav-link(href='/teacher')
+              h5 Profile
+          else 
+            a.nav-link(href='/student')
+              h5 Profile
       ul.navbar-nav.my-2.my-md-0
         li.nav-item.dropdown
           a#navbarDropdownMenuLink-333.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
             i.fas.fa-user.fa-2x
           .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-333')
             a.dropdown-item(href='#') Profile
-            a.dropdown-item(href='#') Log out
+            a.dropdown-item(href='http://localhost:3000/auth/logout') Log out
 .container
   .row.my-2
     .col-lg-8.order-lg-2
@@ -52,14 +60,14 @@ header
             span=  teacher.address
           hr.w-50
           div Phone number:
-            span=  teacher.phone
+            span=  teacher.phoneNumber
           div Facebook
             a(href=`${teacher.facebookLink}`, target='_blank')   
               span= teacher.name
           div Email:
             span= teacher.email
     .col-lg-4.order-lg-1.text-center
-      img.mx-auto.img-fluid.rounded-circle.rounded-avatar-big.d-block.avatar(src='./images/wowy.jpg', alt='avatar')
+      img.mx-auto.img-fluid.rounded-circle.rounded-avatar-big.d-block.avatar(src='/images/wowy.jpg', alt='avatar')
 footer
   .container.footer-container.text-white
     h5 School Management System

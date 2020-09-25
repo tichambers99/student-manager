@@ -12,99 +12,67 @@ head
   title Edit score
 header
   nav.navbar.navbar-expand.bg-color
-    a.navbar-brand(href='./login.html')
-      img(src='./images/logo.png', alt='')
+    if isTeacher
+      a.navbar-brand(href='/teacher')
+        img(src='/images/logo.png', alt='')
+    else
+      a.navbar-brand(href='/student')
+        img(src='/images/logo.png', alt='')
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample02', aria-controls='navbarsExample02', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarsExample02.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item.active
-          a.nav-link(href='#')
+          a.nav-link(href='/teacher/class')
             h5 Class
         li.nav-item
-          a.nav-link(href='#')
+          a.nav-link(href='/teacher/list')
             h5 Teacher
         li.nav-item
-          a.nav-link(href='#')
-            h5 Profile
+          if isTeacher
+            a.nav-link(href='/teacher')
+              h5 Profile
+          else 
+            a.nav-link(href='/student')
+              h5 Profile
       ul.navbar-nav.my-2.my-md-0
         li.nav-item.dropdown
           a#navbarDropdownMenuLink-333.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
             i.fas.fa-user.fa-2x
           .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-333')
             a.dropdown-item(href='#') Profile
-            a.dropdown-item(href='#') Log out
+            a.dropdown-item(href='http://localhost:3000/auth/logout') Log out
 .container
   h5 Edit score
   form.d-flex.justify-content-end.align-items-center.mb-4
     .form-group
       input.form-control.h-75(type='text', placeholder='Search by name')
     button.btn.btn-search.form-group.h-75(type='submit') Search
-  table
-    tr
-      th Avatar
-      th Name
-      th.w-15(colspan='2') Math
-      th.w-15(colspan='2') Literature
-      th.w-15(colspan='2') English
-    tr
-      td
-        img.mx-auto.img-fluid.rounded-circle.rounded-avatar-small.d-block.avatar(src='./images/wowy.jpg', alt='avatar')
-      td Ngu37n V1n Kha8nh
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-    tr
-      td
-        img.mx-auto.img-fluid.rounded-circle.rounded-avatar-small.d-block.avatar(src='./images/wowy.jpg', alt='avatar')
-      td Le Duc Loi
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-      td
-        form
-          .form-group
-            input.form-control.h-75(type='text', value='9')
-  .text-right
-    button.btn.mt-4.mr-4.text-white(type='submit', value='Send') Save
+  form(action="/teacher/edit-score", method="POST")
+    table
+      tr
+        th Avatar
+        th Name
+        th.w-15 Math
+        th.w-15 Literature
+        th.w-15 English
+      each student in students
+        input.form-control.h-75(type='hidden', name="user_id", value=`${student.user}`)
+        tr
+          td
+            img.mx-auto.img-fluid.rounded-circle.rounded-avatar-small.d-block.avatar(src='/images/wowy.jpg', alt='avatar')
+          td= student.name
+          td
+            .form-group
+              input.form-control.h-75(type='number', min='0', max='10', name="math", value=`${student.mark.math}`)
+          td
+            .form-group
+              input.form-control.h-75(type='number', min='0', max='10', name="literature", value=`${student.mark.literature}`)
+          td
+            .form-group
+              input.form-control.h-75(type='number', min='0', max='10', name="english", value=`${student.mark.english}`)
+    .text-right
+      button.btn.mt-4.mr-4.text-white(type='submit') Save
 footer
   .container.footer-container.text-white
     h5 School Management System

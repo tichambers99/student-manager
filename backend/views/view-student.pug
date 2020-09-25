@@ -13,28 +13,36 @@ head
   title User profile
 header
   nav.navbar.navbar-expand.bg-color
-    a.navbar-brand(href='./login.html')
-      img(src='./images/logo.png', alt='')
+    if isTeacher
+      a.navbar-brand(href='/teacher')
+        img(src='/images/logo.png', alt='')
+    else
+      a.navbar-brand(href='/student')
+        img(src='/images/logo.png', alt='')
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample02', aria-controls='navbarsExample02', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarsExample02.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item.active
-          a.nav-link(href='#')
+          a.nav-link(href='/teacher/class')
             h5 Class
         li.nav-item
-          a.nav-link(href='#')
+          a.nav-link(href='/teacher/list')
             h5 Teacher
         li.nav-item
-          a.nav-link(href='#')
-            h5 Profile
+          if isTeacher
+            a.nav-link(href='/teacher')
+              h5 Profile
+          else 
+            a.nav-link(href='/student')
+              h5 Profile
       ul.navbar-nav.my-2.my-md-0
         li.nav-item.dropdown
           a#navbarDropdownMenuLink-333.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
             i.fas.fa-user.fa-2x
           .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-333')
             a.dropdown-item(href='#') Profile
-            a.dropdown-item(href='#') Log out
+            a.dropdown-item(href='http://localhost:3000/auth/logout') Log out
 .container
   .row.my-2
     .col-lg-8.order-lg-2
@@ -48,43 +56,34 @@ header
       .tab-content.py-4
         #profile.tab-pane.active
           h5.mb-3 Student Profile
-          div
-            | Name: Nguy37n V2n Kha8nh
-          div
-            | Date: 07/12/19999
-          div
-            | Address: Yen Noi, Quoc Oai, Ha Noi
+          div Name: 
+            span= student.name
+          div Date: 
+            span=  student.dateOfBirth
+          div Address: 
+            span=  student.address
           hr.w-50
-          div
-            | SDT li3n h39: 0900900090
-          div
-            | Fb: 
-            a(href='https://facebook.com/tichambers99', target='_blank')  Khanh Nguyen
-          div
-            | Email: khanhkhanhars@gmail.com
+          div Email: 
+            span= student.email
         #edit.tab-pane
           h5.mb-3 Change Profile
           form.contact-form.mt-md-4
-            .row
+            .row.mt-2
               .col-lg-6
                 .form-group
                   input#name.form-control.border-0.text-placeholder(name='name', type='text', placeholder='Your Name')
               .col-lg-6
                 .form-group
                   input#email.form-control.border-0.text-placeholder(name='email', type='email', placeholder='Your Email')
-            .row
+            .row.mt-2
               .col-lg-12
                 .form-group
-                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Subject')
-            .row
+                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Date of birth')
+            .row.mt-2
               .col-lg-12
                 .form-group
-                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Subject')
-            .row
-              .col-lg-12
-                .form-group
-                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Subject')
-            .row
+                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Address')
+            .row.mt-2
               .col-lg-12.text-left
                 button.btn.mt-4.text-white(type='submit', value='Send') Save
         #score.tab-pane
@@ -92,23 +91,22 @@ header
           table
             tr
               th Name
-              th Mid-term
               th End-term
-            tr
+            tr 
               td Math
-              td 8
-              td 9
+              td= student.mark.math
             tr
               td Literature
-              td 8
-              td 9
+              td= student.mark.literature
+            tr
+              td English
+              td= student.mark.english
           h5.mt-3
             | Teacher&apos;s comment
           div
             | This student have something to try in this term. The score is very high but real capacity is not real
     .col-lg-4.order-lg-1.text-center
-      img.mx-auto.img-fluid.rounded-circle.rounded-avatar-big.d-block.avatar(src='./images/wowy.jpg', alt='avatar')
-      button.btn.w-50
+      img.mx-auto.img-fluid.rounded-circle.rounded-avatar-big.d-block.avatar(src='/images/wowy.jpg', alt='avatar')
       input#file.custom-file-input(type='file')
       h6.text-white Change avatar
 footer

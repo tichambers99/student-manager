@@ -1,15 +1,13 @@
 const Student = require('../models/student.model');
 
 module.exports.getStudent = async function(req, res) {
-  // const student = await Student.find({email: email});
-  // res.render('/', student[0]);
-  const { email } = req.query;
+  const { userId } = req.signedCookies;
   
-  const student = await Student.find({email: email});
-  if (student.length) {
-    console.log(student[0])
+  const students = await Student.find({user: userId});
+  if (students.length) {
     res.render('student-views-student', {
-      student: student[0]
+      student: students[0],
+      isTeacher: false
     });
   }
 }

@@ -34,3 +34,11 @@ module.exports.postLogin = async function(req, res) {
    : 
     res.redirect('/student')
 }
+
+module.exports.getLogout = function(req, res) {
+	res.clearCookie('userId', {
+		signed: false
+	});
+
+	res.redirect('/');
+}

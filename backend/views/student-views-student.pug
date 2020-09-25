@@ -13,8 +13,12 @@ head
   title User profile
 header
   nav.navbar.navbar-expand.bg-color
-    a.navbar-brand(href='./login.html')
-      img(src='./images/logo.png', alt='')
+    if isTeacher
+      a.navbar-brand(href='/teacher')
+        img(src='/images/logo.png', alt='')
+    else
+      a.navbar-brand(href='/student')
+        img(src='/images/logo.png', alt='')
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample02', aria-controls='navbarsExample02', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarsExample02.collapse.navbar-collapse
@@ -26,15 +30,19 @@ header
           a.nav-link(href='#')
             h5 Teacher
         li.nav-item
-          a.nav-link(href='#')
-            h5 Profile
+          if isTeacher
+            a.nav-link(href='/teacher')
+              h5 Profile
+          else 
+            a.nav-link(href='/student')
+              h5 Profile
       ul.navbar-nav.my-2.my-md-0
         li.nav-item.dropdown
           a#navbarDropdownMenuLink-user.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
             i.fas.fa-user.fa-2x
           .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-user')
             a.dropdown-item(href='#') Profile
-            a.dropdown-item(href='#') Log out
+            a.dropdown-item(href='http://localhost:3000/auth/logout') Log out
             
 .container
   .row.my-2
@@ -45,46 +53,40 @@ header
         li.nav-item
           a.nav-link(href='', data-target='#score', data-toggle='tab') Score
       .tab-content.py-4
-        #profile.tab-pane.active
-          h5.mb-3 User Profile
-          div Name:
-            span= student.name
-          div Date:
-            span= student.dateOfBirth
-          div Address:
-           span= student.address
-          hr.w-50
-          div Class:
-            span= student.class
-          div Fb: 
-            a(href='https://facebook.com/tichambers99', target='_blank')
+          #profile.tab-pane.active
+            h5.mb-3 User Profile
+            div Name: 
               span= student.name
-          div Email:
-            span= student.email
-        #score.tab-pane
-          h5.mb-3 Student score
-          table
-            tr
-              th Name
-              th Mid-term
-              th End-term
-            tr
-              td Math
-              td 8
-              td 9
-            tr
-              td Literature
-              td 8
-              td 9
-          h5.mt-3
-            | Teacher&apos;s comment
-          div
-            | This student have something to try in this term. The score is very high but real capacity is not real
+            div Date: 
+              span= student.dateOfBirth
+            div Address: 
+              span= student.address
+            hr.w-50
+            div Class: 
+              span= student.classes
+            div Email: 
+              span= student.email
+          #score.tab-pane
+            h5.mb-3 Student score
+            table
+              tr
+                th Name
+                th End-term
+              tr
+                td Math
+                td= student.mark.math
+              tr
+                td Literature
+                td= student.mark.literature
+              tr
+                td English
+                td= student.mark.english
+            h5.mt-3
+              | Teacher&apos;s comment
+            div
+              | This student have something to try in this term. The score is very high but real capacity is not real
     .col-lg-4.order-lg-1.text-center
-      img.mx-auto.img-fluid.rounded-circle.d-block.avatar(src='./images/wowy.jpg', alt='avatar')
-      button.btn.w-50
-        input#file.custom-file-input(type='file')
-        .text-white Change avatar
+      img.mx-auto.img-fluid.rounded-circle.rounded-avatar-big.d-block.avatar(src='./images/wowy.jpg', alt='avatar')
 footer
   .container.footer-container.text-white
     h5 School Management System
