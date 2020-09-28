@@ -22,18 +22,26 @@ header
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample02', aria-controls='navbarsExample02', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarsExample02.collapse.navbar-collapse
-      ul.navbar-nav.mr-auto
-        li.nav-item.active
-          a.nav-link(href='/teacher/class')
-            h5 Class
-        li.nav-item
-          a.nav-link(href='/teacher/list')
-            h5 Teacher
-        li.nav-item
-          if isTeacher
+      if isTeacher
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/teacher/class')
+              h5 Class
+          li.nav-item
+            a.nav-link(href='/teacher/list')
+              h5 Teacher
+          li.nav-item
             a.nav-link(href='/teacher')
               h5 Profile
-          else 
+      else
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/student/class')
+              h5 Class
+          li.nav-item
+            a.nav-link(href='/teacher/list')
+              h5 Teacher
+          li.nav-item
             a.nav-link(href='/student')
               h5 Profile
       ul.navbar-nav.my-2.my-md-0
@@ -41,7 +49,10 @@ header
           a#navbarDropdownMenuLink-333.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
             i.fas.fa-user.fa-2x
           .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-333')
-            a.dropdown-item(href='#') Profile
+            if isTeacher
+              a.dropdown-item(href='/teacher') Profile
+            else
+              a.dropdown-item(href='/student') Profile
             a.dropdown-item(href='http://localhost:3000/auth/logout') Log out
 .container
   .row.my-2
@@ -49,8 +60,9 @@ header
       ul.nav.nav-tabs
         li.nav-item
           a.nav-link.active(href='', data-target='#profile', data-toggle='tab') Profile
-        li.nav-item
-          a.nav-link(href='', data-target='#edit', data-toggle='tab') Edit
+        if isTeacher
+          li.nav-item
+            a.nav-link(href='', data-target='#edit', data-toggle='tab') Edit
         li.nav-item
           a.nav-link(href='', data-target='#score', data-toggle='tab') Score
       .tab-content.py-4
@@ -65,27 +77,26 @@ header
           hr.w-50
           div Email: 
             span= student.email
-        #edit.tab-pane
-          h5.mb-3 Change Profile
-          form.contact-form.mt-md-4
-            .row.mt-2
-              .col-lg-6
-                .form-group
-                  input#name.form-control.border-0.text-placeholder(name='name', type='text', placeholder='Your Name')
-              .col-lg-6
-                .form-group
-                  input#email.form-control.border-0.text-placeholder(name='email', type='email', placeholder='Your Email')
-            .row.mt-2
-              .col-lg-12
-                .form-group
-                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Date of birth')
-            .row.mt-2
-              .col-lg-12
-                .form-group
-                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Address')
-            .row.mt-2
-              .col-lg-12.text-left
-                button.btn.mt-4.text-white(type='submit', value='Send') Save
+        if isTeacher
+          #edit.tab-pane
+            h5.mb-3 Change Profile
+            form(action="/teacher/edit-infor", method ="POST").contact-form.mt-md-4
+              input.form-control.h-75(type='hidden', name="user_id", value=`${student._id}`)
+              .row.mt-2
+                .col-lg-12
+                  .form-group
+                    input#name.form-control.border-0.text-placeholder(name='name', type='text', placeholder='Your Name')
+              .row.mt-2
+                .col-lg-12
+                  .form-group
+                    input#subject.form-control.border-0.text-placeholder(name='dateOfBirth', type='text', placeholder='Date of birth')
+              .row.mt-2
+                .col-lg-12
+                  .form-group
+                    input#subject.form-control.border-0.text-placeholder(name='address', type='text', placeholder='Address')
+              .row.mt-2
+                .col-lg-12.text-left
+                  button.btn.mt-4.text-white Save
         #score.tab-pane
           h5.mb-3 Student score
           table

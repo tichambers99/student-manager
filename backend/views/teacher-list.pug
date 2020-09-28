@@ -40,13 +40,16 @@ header
           a#navbarDropdownMenuLink-333.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
             i.fas.fa-user.fa-2x
           .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-333')
-            a.dropdown-item(href='#') Profile
+            if isTeacher
+              a.dropdown-item(href='/teacher') Profile
+            else
+              a.dropdown-item(href='/student') Profile
             a.dropdown-item(href='http://localhost:3000/auth/logout') Log out
 .container
-  h5 Teacher in school
-  form.d-flex.justify-content-end.align-items-center
+  h2 Teacher in school
+  form(action="searchTeacher").d-flex.justify-content-end.align-items-center
     .form-group
-      input.form-control.h-75(type='text', placeholder='Search by name')
+      input.form-control.h-75(type='text', name='q', placeholder='Search by name')
     button.btn.btn-search.form-group.h-75(type='submit') Search
   table
     tr

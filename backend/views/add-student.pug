@@ -1,16 +1,15 @@
-doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   meta(http-equiv='X-UA-Compatible', content='ie=edge')
   link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
-  link(rel='stylesheet', href='style/style.css')
+  link(rel='stylesheet', href='/style/style.css')
   link(href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap', rel='stylesheet')
   script(src='https://kit.fontawesome.com/e160fe7774.js', crossorigin='anonymous')
   script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
   script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js')
   script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
-  title User profile
+  title Add student
 header
   nav.navbar.navbar-expand.bg-color
     a.navbar-brand(href='./login.html')
@@ -20,20 +19,23 @@ header
     #navbarsExample02.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item.active
-          a.nav-link(href='#')
+          a.nav-link(href='/teacher/class')
             h5 Class
         li.nav-item
-          a.nav-link(href='#')
+          a.nav-link(href='/teacher/list')
             h5 Teacher
         li.nav-item
-          a.nav-link(href='#')
+          a.nav-link(href='/teacher')
             h5 Profile
       ul.navbar-nav.my-2.my-md-0
         li.nav-item.dropdown
           a#navbarDropdownMenuLink-333.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
             i.fas.fa-user.fa-2x
           .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-333')
-            a.dropdown-item(href='#') Profile
+            if isTeacher
+              a.dropdown-item(href='/teacher') Profile
+            else
+              a.dropdown-item(href='/student') Profile
             a.dropdown-item(href='#') Log out
 .container
   .row.my-2
@@ -43,8 +45,8 @@ header
           a.nav-link.active(href='', data-target='#add', data-toggle='tab') Add student
       .tab-content.py-4
         #add.tab-pane.active
-          h5.mb-3 Change Profile
-          form.contact-form.mt-md-4
+          h5.mb-3 Add student
+          form(action="/teacher/add-student", method="POST").contact-form.mt-md-4
             .row
               .col-lg-6
                 .form-group
@@ -59,18 +61,18 @@ header
             .row
               .col-lg-12
                 .form-group
-                  input#password.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Password')
+                  input#password.form-control.border-0.text-placeholder(name='password', type='password', placeholder='Password')
             .row
               .col-lg-12
                 .form-group
-                  input#dateOfBirth.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Date of Birth')
+                  input#dateOfBirth.form-control.border-0.text-placeholder(name='dateOfBirth', type='text', placeholder='Date of Birth')
             .row
               .col-lg-12
                 .form-group
-                  input#subject.form-control.border-0.text-placeholder(name='subject', type='text', placeholder='Address')
+                  input#subject.form-control.border-0.text-placeholder(name='address', type='text', placeholder='Address')
             .row
               .col-lg-12.text-left
-                button.btn.mt-4.text-white(type='submit', value='Send') Add student
+                button.btn.mt-4.text-white(type='submit') Add student
     .col-lg-4.order-lg-1.text-center
       img.mx-auto.img-fluid.rounded-circle.rounded-avatar-big.d-block.avatar(src='/images/wowy.jpg', alt='avatar')
       button.btn.w-50

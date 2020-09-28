@@ -35,14 +35,14 @@ body.login-page
               .col-9.col-md-12.d-flex.align-items-center.py-2
                 h6 Easily to using this website
       .col-md-6.order-md-2.order-1.text-center
-        img(src='/images/logo.png', alt='')
+        img.mb-2(src='/images/logo.png', alt='')
         h4.my-2 School management system
         h5 Log in
         form(action="/auth", method="POST")
           .form-group
             // <label for="exampleInputEmail1">Email address</label>
-            input#exampleInputEmail1.form-control(type='text', aria-describedby='emailHelp', placeholder='Account', name='email')
+            input#exampleInputEmail1.form-control.mb-2(type='text', aria-describedby='emailHelp', placeholder='Account', name='email')
           .form-group
             // <label for="exampleInputPassword1">Password</label>
-            input#exampleInputPassword1.form-control(type='password', placeholder='Password', name='password')
+            input#exampleInputPassword1.form-control.mb-2(type='password', placeholder='Password', name='password')
           button.btn.text-white(type='submit') Log in

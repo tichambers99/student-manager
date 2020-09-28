@@ -42,3 +42,5 @@ module.exports.getLogout = function(req, res) {
 
 	res.redirect('/');
 }
+
+

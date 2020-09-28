@@ -21,18 +21,26 @@ header
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample02', aria-controls='navbarsExample02', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarsExample02.collapse.navbar-collapse
-      ul.navbar-nav.mr-auto
-        li.nav-item.active
-          a.nav-link(href='/teacher/class')
-            h5 Class
-        li.nav-item
-          a.nav-link(href='/teacher/list')
-            h5 Teacher
-        li.nav-item
-          if isTeacher
+      if isTeacher
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/teacher/class')
+              h5 Class
+          li.nav-item
+            a.nav-link(href='/teacher/list')
+              h5 Teacher
+          li.nav-item
             a.nav-link(href='/teacher')
               h5 Profile
-          else 
+      else
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/student/class')
+              h5 Class
+          li.nav-item
+            a.nav-link(href='/teacher/list')
+              h5 Teacher
+          li.nav-item
             a.nav-link(href='/student')
               h5 Profile
       ul.navbar-nav.my-2.my-md-0
@@ -40,29 +48,43 @@ header
           a#navbarDropdownMenuLink-333.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
             i.fas.fa-user.fa-2x
           .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-333')
-            a.dropdown-item(href='#') Profile
+            if isTeacher
+              a.dropdown-item(href='/teacher') Profile
+            else
+              a.dropdown-item(href='/student') Profile
             a.dropdown-item(href='http://localhost:3000/auth/logout') Log out
 .container
   h2 Class
   .row.d-flex.justify-content-between
     .col-md-3.col-6
       form.d-flex
-        select.custom-select.form-group.mr-1
-          option(selected='') Grade
-          option(value='1') 1
-          option(value='2') 2
-          option(value='3') 3
-        select.custom-select.form-group
-          option(selected='') Class
-          option(value='1') A
-          option(value='2') B
-    .col-md-8.col-12
-      form.d-flex.justify-content-end.align-items-center
-        button.btn.h-75.edit-score
-          a(href='/teacher/edit-score') Edit score 
-        .form-group
-          input.form-control.h-75(type='text', placeholder='Search by name')
-        button.btn.btn-search.form-group.h-75(type='submit') Search
+        if isStudent
+          select.custom-select.form-group.mr-1
+            option(selected='') Class
+            option(value='1') 1A
+            option(value='2') 2B
+        else
+          button.btn.h-75.edit-score
+            a(href='/teacher/edit-score') Edit score
+          button.btn.h-75.edit-score
+            a(href='/teacher/add-student') Add student 
+    .col-md-2.col-12.justify-content-end
+      if isTeacher
+          select.custom-select.form-group.mr-1
+            option(selected='') Class
+            option(value='1') 1B
+            option(value='2') 2A
+    .col-md-6.col-12
+      if isTeacher
+        form(action="teaSearchStu", method ="GET").d-flex.justify-content-end.align-items-center
+          .form-group
+            input.form-control.h-75(type='text', name='q', placeholder='Search by name')
+          button.btn.btn-search.form-group.h-75 Search
+      else
+        form(action="stuSearchStu", method ="GET").d-flex.justify-content-end.align-items-center
+          .form-group
+            input.form-control.h-75(type='text', name='q', placeholder='Search by name')
+          button.btn.btn-search.form-group.h-75 Search
   table
     tr
       th Avatar
@@ -78,8 +100,10 @@ header
         td= student.dateOfBirth
         td= student.classes
         td
-          a(href='/teacher/student-profile/' + student._id) View profile
-      tr
+          if isTeacher
+            a(href='/teacher/student-profile/' + student._id) View profile
+          else
+            a(href='/student/student-profile/' + student._id) View profile
 footer
   .container.footer-container.text-white
     h5 School Management System

@@ -24,10 +24,10 @@ header
     #navbarsExample02.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item
-          a.nav-link(href='#')
+          a.nav-link(href='/student/class')
             h5 Class
         li.nav-item
-          a.nav-link(href='#')
+          a.nav-link(href='/student/list')
             h5 Teacher
         li.nav-item
           if isTeacher
@@ -41,7 +41,10 @@ header
           a#navbarDropdownMenuLink-user.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
             i.fas.fa-user.fa-2x
           .dropdown-menu.dropdown-menu-right.dropdown-default(aria-labelledby='navbarDropdownMenuLink-user')
-            a.dropdown-item(href='#') Profile
+            if isTeacher
+              a.dropdown-item(href='/teacher') Profile
+            else
+              a.dropdown-item(href='/student') Profile
             a.dropdown-item(href='http://localhost:3000/auth/logout') Log out
             
 .container
@@ -86,7 +89,7 @@ header
             div
               | This student have something to try in this term. The score is very high but real capacity is not real
     .col-lg-4.order-lg-1.text-center
-      img.mx-auto.img-fluid.rounded-circle.rounded-avatar-big.d-block.avatar(src='./images/wowy.jpg', alt='avatar')
+      img.mx-auto.img-fluid.rounded-circle.rounded-avatar-big.d-block.avatar(src='/images/wowy.jpg', alt='avatar')
 footer
   .container.footer-container.text-white
     h5 School Management System
